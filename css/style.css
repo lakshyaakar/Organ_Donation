@@ -172,7 +172,7 @@ banner
     letter-spacing: 0.1em;
     background: white;
     color: RGBA(13, 100, 83, 1);
-    transition: all 500ms;
+    transition: all 0.3s ease 0s;
 }
 
 .overlay-detail a i {
