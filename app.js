@@ -15,6 +15,7 @@ var RecipientSchema = new mongoose.Schema({
 	password: String,
 	Blood_Grp: String,
 	Organ_needed: String,
+	contact_no: Number,
 	city: String
 });
 
@@ -43,7 +44,7 @@ var Donor = mongoose.model("Donor",DonorSchema);
 var Hospital = mongoose.model("Hospital",HospitalSchema);
 
 app.get("/",function(req,res){
-	res.render("index.ejs");
+	res.render("https://lakshyaakar.github.io/Organ__Donation/index.html");
 });
 
 
@@ -53,7 +54,7 @@ app.get("/recipients",function(req,res){
 	if(err)
 		console.log(err);
 	else
-		res.render("index.html", {recipients: recipients});
+		res.render("./recipient/show_recipients.ejs", {recipients: recipients});
 	});
 });
 
@@ -67,7 +68,9 @@ app.post("/recipients",function(req,res){
 	var password = req.body.password;
 	var Blood_Grp = req.body.Blood_Grp;
 	var Organ = req.body.Organ;
+	var contact_no = req.body.contact_no;
 	var city = req.body.city;
+
 	
 	Recipient.create({
 			name: name,
@@ -75,6 +78,7 @@ app.post("/recipients",function(req,res){
 			password: password,
 			Blood_Grp: Blood_Grp,
 			Organ_needed: Organ,
+			contact_no: contact_no,
 			city: city
 		},function(err,recipient){
 		if(err)
