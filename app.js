@@ -43,24 +43,10 @@ var Donor = mongoose.model("Donor",DonorSchema);
 var Hospital = mongoose.model("Hospital",HospitalSchema);
 
 app.get("/",function(req,res){
-	res.render("/index.html");
+	res.render("index.ejs");
 });
 
-/*Donor.create({
-			name: "lakshya",
-			userID: "luck", 
-			password: "pass",
-			Blood_Grp: "B+ve",
-			dob:"14-10-2000"
-			Organ_needed: "lungs",	
-			city: "jaipur",
-			contact_no:1234567890
-		},function(err,donor){
-		if(err)
-			console.log(err);
-		else
-			console.log(donor);
-	});*/
+
 
 app.get("/recipients",function(req,res){
 	Recipient.find({}, function(err,recipients){
@@ -94,7 +80,7 @@ app.post("/recipients",function(req,res){
 		if(err)
 			console.log(err);
 		else
-			res.redirect("/");
+			res.redirect("https://lakshyaakar.github.io/Organ__Donation/index.html");
 	});
 });
 
@@ -134,7 +120,7 @@ app.post("/donors",function(req,res){
 		if(err)
 			console.log(err);
 		else
-			res.redirect("/donor");
+			res.redirect("https://lakshyaakar.github.io/Organ__Donation/index.html");
 	});
 });
 
@@ -170,7 +156,7 @@ app.post("/hospitals",function(req,res){
 		if(err)
 			console.log(err);
 		else
-			res.redirect("/hospitals");
+			res.redirect("https://lakshyaakar.github.io/Organ__Donation/index.html");
 	});
 });
 
